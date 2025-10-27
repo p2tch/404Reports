@@ -1,2 +1,3 @@
-# 404Reports
-A stable and efficient plugin for reporting players in Minecraft
+<h1 align="center">
+  # 404Reports - Minecraft Player Reporting Plugin
+</h1>
