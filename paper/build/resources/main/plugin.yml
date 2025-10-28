@@ -1,0 +1,6 @@
+name: 404Reports
+version: 1.0.0
+main: dev.p2tch.reportsplugin.paper.bootstrap.PluginBootstrap
+author: 404 (p2tch)
+contributors: [Navio1430]
+api-version: '1.21'

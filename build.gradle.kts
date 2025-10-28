@@ -26,6 +26,9 @@ subprojects {
 
                     property("version", project.version.toString())
                 }
+                javaSources {
+                    property("version", project.version.toString())
+                }
             }
         }
     }
