@@ -21,4 +21,4 @@
 - ~~GitHub Actions:~~
   - ~~dependabot~~
   - ~~build~~
-- Blossom plugin
+- ~~Blossom plugin~~
