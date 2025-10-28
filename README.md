@@ -18,7 +18,7 @@
 | Paper    | In progress  |
 
 ## 🔔 TODO
-- [ ] GitHub Actions:
-  - [ ] dependabot
-  - [ ] build
-- [ ] Blossom plugin
+- [X] GitHub Actions:
+  - [X] dependabot
+  - [X] build
+- [X] Blossom plugin
