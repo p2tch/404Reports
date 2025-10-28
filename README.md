@@ -22,3 +22,6 @@
   - [X] dependabot
   - [X] build
 - [X] Blossom plugin
+- [ ] Minecraft comnmands
+- [ ] Configuration
+- [ ] Discord integration
