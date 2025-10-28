@@ -41,14 +41,14 @@ public class CachedUserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Optional<User> findByNickname(final @NotNull String nickname) {
+    public Optional<User> findByUsername(final @NotNull String nickname) {
         final User cached = userCacheByName.getIfPresent(nickname);
 
         if (cached != null) {
             return Optional.of(cached);
         }
 
-        final Optional<User> user = delegate.findByNickname(nickname);
+        final Optional<User> user = delegate.findByUsername(nickname);
         user.ifPresent(u -> {
             userCacheById.put(u.getUuid(), u);
             userCacheByName.put(u.getLastKnownName(), u);

@@ -32,7 +32,7 @@ public class OrmLiteUserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Optional<User> findByNickname(final @NotNull String nickname) {
+    public Optional<User> findByUsername(final @NotNull String nickname) {
         try {
             return Optional.ofNullable(dao.queryForFirst(dao.queryBuilder().where().eq("lastKnownName", nickname).prepare()));
         } catch (final SQLException e) {
