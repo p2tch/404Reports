@@ -16,6 +16,7 @@
 | Platform | Supported    |
 |----------|--------------|
 | Paper    | In progress  |
+| Velocity | Soon...      |
 
 ## 🔔 TODO
 - [X] GitHub Actions:
