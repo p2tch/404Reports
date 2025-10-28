@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("net.kyori.blossom") version "2.2.0"
 }
 
 allprojects {
@@ -12,3 +13,21 @@ allprojects {
         maven("https://repo.velocitypowered.com/snapshots/")
     }
 }
+
+subprojects {
+    apply(plugin = "java")
+    apply(plugin = "net.kyori.blossom")
+
+    sourceSets {
+        main {
+            blossom {
+                resources {
+                    trimNewlines = false
+
+                    property("version", project.version.toString())
+                }
+            }
+        }
+    }
+}
+
