@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21.10-R0.1-SNAPSHOT")
 
     implementation("com.google.inject:guice:7.0.0")
     implementation("net.dv8tion:JDA:6.1.0")
