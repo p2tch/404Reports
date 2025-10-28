@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.jetbrains:annotations:26.0.2")
+    compileOnly("org.jetbrains:annotations:26.0.2-1")
 
     implementation("com.google.inject:guice:7.0.0")
 }
