@@ -1,3 +1,11 @@
 /.gradle/
 .idea/
 /build/
+/paper/build/classes/
+/paper/build/generated/resources/
+/paper/build/generated/sources/annotationProcessor/
+/paper/build/generated/sources/headers/
+/common/build
+/velocity/build
+/paper/build/resources/
+/paper/build/tmp/
