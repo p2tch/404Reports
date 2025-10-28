@@ -1,9 +1,9 @@
-package dev.p2tch.reportsplugin.bootstrap;
+package dev.p2tch.reportsplugin.paper.bootstrap;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import dev.p2tch.reportsplugin.module.PluginModule;
-import dev.p2tch.reportsplugin.module.Slf4jLoggerModule;
+import dev.p2tch.reportsplugin.paper.module.PluginModule;
+import dev.p2tch.reportsplugin.paper.module.Slf4jLoggerModule;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.slf4j.Logger;
 

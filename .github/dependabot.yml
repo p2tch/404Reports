@@ -4,3 +4,15 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+  - package-ecosystem: "gradle"
+    directory: "/paper" # Location of package manifests
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "gradle"
+    directory: "/velocity" # Location of package manifests
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "gradle"
+    directory: "/common" # Location of package manifests
+    schedule:
+      interval: "weekly"

@@ -1,7 +1,7 @@
-package dev.p2tch.reportsplugin.module;
+package dev.p2tch.reportsplugin.paper.module;
 
 import com.google.inject.AbstractModule;
-import dev.p2tch.reportsplugin.bootstrap.PluginBootstrap;
+import dev.p2tch.reportsplugin.paper.bootstrap.PluginBootstrap;
 import org.jetbrains.annotations.NotNull;
 
 public final class PluginModule extends AbstractModule {

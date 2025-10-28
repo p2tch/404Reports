@@ -1,4 +1,4 @@
-package dev.p2tch.reportsplugin.domain.model;
+package dev.p2tch.reportsplugin.common.domain.model;
 
 import org.jetbrains.annotations.NotNull;
 
