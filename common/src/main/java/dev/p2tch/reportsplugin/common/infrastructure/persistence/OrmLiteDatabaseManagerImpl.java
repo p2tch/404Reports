@@ -22,7 +22,10 @@ public class OrmLiteDatabaseManagerImpl implements DatabaseManager {
     @Override
     public void connect() {
         try {
-            if (connectionSource == null) connectionSource = new JdbcConnectionSource(url, user, password);
+            if (connectionSource == null) {
+                if (user.isEmpty() && password.isEmpty()) connectionSource = new JdbcConnectionSource(url);
+                else connectionSource = new JdbcConnectionSource(url, user, password);
+            }
         } catch (final SQLException e) {
             throw new RuntimeException("Error while connecting to database", e);
         }
