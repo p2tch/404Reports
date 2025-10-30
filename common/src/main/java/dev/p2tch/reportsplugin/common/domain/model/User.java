@@ -33,7 +33,7 @@ public class User {
         return lastKnownName;
     }
 
-    public void setLastKnownName(String lastKnownName) {
+    public void setLastKnownName(final @NotNull String lastKnownName) {
         this.lastKnownName = lastKnownName;
     }
 
