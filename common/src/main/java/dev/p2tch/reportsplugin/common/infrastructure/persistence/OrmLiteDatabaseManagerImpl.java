@@ -2,6 +2,8 @@ package dev.p2tch.reportsplugin.common.infrastructure.persistence;
 
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.TableUtils;
+import dev.p2tch.reportsplugin.common.domain.model.User;
 import dev.p2tch.reportsplugin.common.domain.repository.DatabaseManager;
 import org.jetbrains.annotations.NotNull;
 
@@ -26,6 +28,8 @@ public class OrmLiteDatabaseManagerImpl implements DatabaseManager {
                 if (user.isEmpty() && password.isEmpty()) connectionSource = new JdbcConnectionSource(url);
                 else connectionSource = new JdbcConnectionSource(url, user, password);
             }
+
+            TableUtils.createTable(connectionSource, User.class);
         } catch (final SQLException e) {
             throw new RuntimeException("Error while connecting to database", e);
         }
