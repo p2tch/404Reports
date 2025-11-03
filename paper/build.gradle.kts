@@ -16,7 +16,7 @@ dependencies {
 
     implementation("com.google.inject:guice:7.0.0")
     implementation("dev.rollczi:litecommands-bukkit:3.10.2")
-    implementation("dev.dejvokep:boosted-yaml:1.3.6")
+    implementation("dev.dejvokep:boosted-yaml:1.3.7")
 }
 
 sourceSets {
