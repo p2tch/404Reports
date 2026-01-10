@@ -9,10 +9,7 @@ import java.util.UUID;
 @DatabaseTable(tableName = "404reports_users")
 public class User {
     @DatabaseField(id = true)
-    private final UUID uuid;
-
-    @DatabaseField(canBeNull = false)
-    private String lastKnownName;
+    private UUID uuid;
 
     @DatabaseField
     private int submittedReports;
@@ -20,21 +17,16 @@ public class User {
     @DatabaseField
     private int receivedReports;
 
-    public User(final @NotNull UUID uuid, final @NotNull String name) {
+    public User() {
+
+    }
+
+    public User(final @NotNull UUID uuid) {
         this.uuid = uuid;
-        this.lastKnownName = name;
     }
 
     public UUID getUuid() {
         return uuid;
-    }
-
-    public String getLastKnownName() {
-        return lastKnownName;
-    }
-
-    public void setLastKnownName(final @NotNull String lastKnownName) {
-        this.lastKnownName = lastKnownName;
     }
 
     public int getSubmittedReports() {

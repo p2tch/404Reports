@@ -24,10 +24,7 @@ public class OrmLiteDatabaseManagerImpl implements DatabaseManager {
     @Override
     public void connect() {
         try {
-            if (connectionSource == null) {
-                if (user.isEmpty() && password.isEmpty()) connectionSource = new JdbcConnectionSource(url);
-                else connectionSource = new JdbcConnectionSource(url, user, password);
-            }
+            if (connectionSource == null) connectionSource = new JdbcConnectionSource(url, user, password);
 
             TableUtils.createTable(connectionSource, User.class);
         } catch (final SQLException e) {

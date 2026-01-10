@@ -14,16 +14,14 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public Optional<User> getUserByID(final @NotNull UUID uuid) {
+    public User getUserByID(final @NotNull UUID uuid) {
         return userRepository.findById(uuid);
     }
 
-    public Optional<User> getUserByName(final @NotNull String username) {
-        return userRepository.findByUsername(username);
-    }
-
-    public void createUser(final @NotNull UUID uuid, final @NotNull String username) {
-        userRepository.save(new User(uuid, username));
+    public void createUser(final @NotNull UUID uuid) {
+        userRepository.save(
+                new User(uuid)
+        );
     }
 
     public void updateUser(final @NotNull User user) {

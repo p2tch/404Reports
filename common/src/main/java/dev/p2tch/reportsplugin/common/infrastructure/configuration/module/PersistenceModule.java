@@ -1,4 +1,4 @@
-package dev.p2tch.reportsplugin.common.infrastructure.config;
+package dev.p2tch.reportsplugin.common.infrastructure.configuration.module;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;

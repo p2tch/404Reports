@@ -7,8 +7,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface UserRepository {
-    Optional<User> findById(final @NotNull UUID uuid);
-    Optional<User> findByUsername(final @NotNull String nickname);
+    User findById(final @NotNull UUID uuid);
 
     void save(final @NotNull User user);
     void update(final @NotNull User user);

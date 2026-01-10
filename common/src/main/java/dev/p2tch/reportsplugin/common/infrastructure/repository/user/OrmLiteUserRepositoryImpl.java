@@ -1,4 +1,4 @@
-package dev.p2tch.reportsplugin.common.infrastructure.repository;
+package dev.p2tch.reportsplugin.common.infrastructure.repository.user;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -8,7 +8,6 @@ import dev.p2tch.reportsplugin.common.domain.repository.UserRepository;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
-import java.util.Optional;
 import java.util.UUID;
 
 public class OrmLiteUserRepositoryImpl implements UserRepository {
@@ -23,20 +22,11 @@ public class OrmLiteUserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Optional<User> findById(final @NotNull UUID uuid) {
+    public User findById(final @NotNull UUID uuid) {
         try {
-            return Optional.ofNullable(dao.queryForId(uuid));
+            return dao.queryForId(uuid);
         } catch (final SQLException e) {
             throw new RuntimeException("Error while fetching user by ID", e);
-        }
-    }
-
-    @Override
-    public Optional<User> findByUsername(final @NotNull String nickname) {
-        try {
-            return Optional.ofNullable(dao.queryForFirst(dao.queryBuilder().where().eq("lastKnownName", nickname).prepare()));
-        } catch (final SQLException e) {
-            throw new RuntimeException("Error while fetching user by nickname", e);
         }
     }
 
