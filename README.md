@@ -12,6 +12,8 @@
   [![Java](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/built-with/java_vector.svg)](https://www.java.com/)
 </div>
 
+[![discord-plural](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/social/discord-plural_vector.svg)](https://discord.gg/S3h9rsbPmu)
+
 ## ✅ Platform info
 | Platform | Supported    |
 |----------|--------------|
