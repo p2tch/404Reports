@@ -16,11 +16,11 @@ public final class DatabaseUrlProviderFactory {
         return switch (db.getType()) {
             case SQLITE -> new FileDatabaseUrlProvider(
                     "jdbc:sqlite:",
-                    new File(dataFolder, db.getDatabase())
+                    new File(dataFolder, db.getDatabase() + ".db")
             );
             case H2 -> new FileDatabaseUrlProvider(
                     "jdbc:h2:file:",
-                    new File(dataFolder, db.getDatabase())
+                    new File(dataFolder, db.getDatabase() + ".mv.db")
             );
             case MYSQL -> new ServerDatabaseUrlProvider(
                     "jdbc:mysql",

@@ -9,7 +9,7 @@ public class DatabaseConfiguration extends OkaeriConfig {
     private DatabaseType type = DatabaseType.SQLITE;
     private String host = "localhost";
     private Integer port = 3306;
-    private String database = "reports";
+    private String database = "database";
     private String username = "root";
     private String password = "password";
 

@@ -10,7 +10,8 @@ allprojects {
             name = "papermc-repo"
             url = uri("https://repo.papermc.io/repository/maven-public/")
         }
-        maven("https://repo.velocitypowered.com/snapshots/")
+        maven("https://repo.okaeri.cloud/releases")
+        maven("https://repo.panda-lang.org/releases")
     }
 }
 
