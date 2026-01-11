@@ -1,45 +1,49 @@
 package dev.p2tch.reportsplugin.common.infrastructure.persistence;
 
+import com.google.inject.Inject;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import dev.p2tch.reportsplugin.common.domain.model.User;
 import dev.p2tch.reportsplugin.common.domain.repository.DatabaseManager;
+import dev.p2tch.reportsplugin.common.infrastructure.persistence.provider.DatabaseUrlProvider;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
 
-public class OrmLiteDatabaseManagerImpl implements DatabaseManager {
-    private final String url;
-    private final String user;
-    private final String password;
+public final class OrmLiteDatabaseManagerImpl implements DatabaseManager {
+
+    private final DatabaseUrlProvider urlProvider;
     private ConnectionSource connectionSource;
 
-    public OrmLiteDatabaseManagerImpl(final @NotNull String url, final @NotNull String user, final @NotNull String password) {
-        this.url = url;
-        this.user = user;
-        this.password = password;
+    @Inject
+    public OrmLiteDatabaseManagerImpl(
+            final @NotNull DatabaseUrlProvider urlProvider
+    ) {
+        this.urlProvider = urlProvider;
     }
 
     @Override
     public void connect() {
         try {
-            if (connectionSource == null) connectionSource = new JdbcConnectionSource(url, user, password);
+            if (connectionSource == null) {
+                connectionSource = new JdbcConnectionSource(urlProvider.create());
 
-            TableUtils.createTable(connectionSource, User.class);
+                TableUtils.createTableIfNotExists(connectionSource, User.class);
+            }
         } catch (final SQLException e) {
-            throw new RuntimeException("Error while connecting to database", e);
+            throw new RuntimeException(e);
         }
     }
 
     @Override
     public void close() {
-        if (connectionSource != null) {
-            try {
+        try {
+            if (connectionSource != null) {
                 connectionSource.close();
-            } catch (final Exception e) {
-                throw new RuntimeException("Error while closing connection", e);
             }
+        } catch (final Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

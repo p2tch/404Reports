@@ -3,32 +3,35 @@ package dev.p2tch.reportsplugin.common.infrastructure.configuration.module;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
+import dev.p2tch.reportsplugin.common.configuration.GeneralConfiguration;
 import dev.p2tch.reportsplugin.common.domain.model.DatabaseType;
 import dev.p2tch.reportsplugin.common.domain.repository.DatabaseManager;
 import dev.p2tch.reportsplugin.common.infrastructure.persistence.OrmLiteDatabaseManagerImpl;
+import dev.p2tch.reportsplugin.common.infrastructure.persistence.provider.DatabaseUrlProvider;
+import dev.p2tch.reportsplugin.common.infrastructure.persistence.provider.impl.DatabaseUrlProviderFactory;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
+
 public class PersistenceModule extends AbstractModule {
-    private final DatabaseType databaseType;
-    private final String url;
-    private final String user;
-    private final String password;
+    private final GeneralConfiguration configuration;
+    private final File dataFolder;
 
     public PersistenceModule(
-            final @NotNull DatabaseType databaseType,
-            final @NotNull String url,
-            final @NotNull String user,
-            final @NotNull String password
+            final @NotNull GeneralConfiguration configuration,
+            final @NotNull File dataFolder
     ) {
-        this.databaseType = databaseType;
-        this.url = url;
-        this.user = user;
-        this.password = password;
+        this.configuration = configuration;
+        this.dataFolder = dataFolder;
     }
 
-    @Provides
-    @Singleton
-    public DatabaseManager provideDatabaseManager() {
-        return new OrmLiteDatabaseManagerImpl(url, user, password);
+    @Override
+    protected void configure() {
+        bind(DatabaseUrlProvider.class)
+                .toInstance(DatabaseUrlProviderFactory.create(configuration, dataFolder));
+
+        bind(DatabaseManager.class)
+                .to(OrmLiteDatabaseManagerImpl.class)
+                .asEagerSingleton();
     }
 }

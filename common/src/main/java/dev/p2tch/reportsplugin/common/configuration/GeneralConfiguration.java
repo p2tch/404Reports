@@ -6,5 +6,9 @@ import eu.okaeri.configs.annotation.Comment;
 
 public class GeneralConfiguration extends OkaeriConfig {
     @Comment("Database configuration")
-    public static DatabaseConfiguration database = new DatabaseConfiguration();
+    private DatabaseConfiguration database = new DatabaseConfiguration();
+
+    public DatabaseConfiguration getDatabaseConfiguration() {
+        return database;
+    }
 }
